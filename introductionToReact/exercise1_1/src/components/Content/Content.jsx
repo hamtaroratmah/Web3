@@ -1,5 +1,6 @@
 import Part from "components/Part/Part";
 
+
 const Content = (props)=>{
   return (
     <>
@@ -9,4 +10,6 @@ const Content = (props)=>{
     </>
   )
 }
+
+
 export default Content
