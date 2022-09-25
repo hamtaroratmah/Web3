@@ -1,20 +1,20 @@
 import {useState} from "react";
+import Button from "../Button/Button";
+import Display from "../Display/Display";
 
 const App = () => {
-  const [ counter, setCounter ] = useState(0)
+  const [counter, setCounter] = useState(0)
+
+  const changeCount = (delta) => {
+    setCounter(counter + delta)
+  }
 
   return (
     <div>
-      <div>{counter}</div>
-      <button onClick={() => setCounter(counter + 1)}>
-        plus
-      </button>
-      <button onClick={() => setCounter(counter-1)}>
-        moins
-      </button>
-      <button onClick={() => setCounter(0)}>
-        zero
-      </button>
+      <Display counter={counter}/>
+      <Button onClick={changeCount} text={"plus"} delta={1}/>
+      <Button onClick={changeCount} text={"moins"} delta={-1}/>
+      <Button onClick={changeCount} text={"zero"} delta={-counter}/>
     </div>
   )
 }
