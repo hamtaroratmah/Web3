@@ -1,6 +1,7 @@
 import Button from "../Button/Button";
 import Statistics from "../Statistics/Statistics";
 import {useState} from "react";
+import Loading from "../Loading/Loading";
 
 function App() {
 
@@ -8,6 +9,12 @@ function App() {
   let [good, setGood] = useState(0)
   let [neutral, setNeutral] = useState(0)
   let [bad, setBad] = useState(0)
+  let [loading, setLoading] = useState(true)
+  setTimeout(changeLoading,3000)
+
+  function changeLoading(){
+    setLoading(false)
+  }
 
   const changeGood = () => {
     setGood(good + 1)
@@ -19,6 +26,13 @@ function App() {
 
   const changeBad = () => {
     setBad(bad + 1)
+  }
+
+  if(loading){
+    return (<div className="App">
+      <h1 className="title">Give feedback</h1>
+      <Loading/>
+    </div>)
   }
 
   return (
