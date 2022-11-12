@@ -14,10 +14,10 @@ const App = () => {
 
   const addName = (e) => {
     e.preventDefault()
-    const present = persons.filter(person=>person.name===newName).length>0
-    if(present){
+    const present = persons.filter(person => person.name === newName).length > 0
+    if (present) {
       alert(`${newName} is already added to phonebook`)
-    }else{
+    } else {
       const newPerson = {id: persons.length, name: newName, number: newNumber}
       setPersons(persons.concat(newPerson))
     }
@@ -30,7 +30,7 @@ const App = () => {
     setNewName(e.target.value)
   }
 
-  const changeNumber = (e)=>{
+  const changeNumber = (e) => {
     setNewNumber(e.target.value)
   }
 
@@ -51,7 +51,7 @@ const App = () => {
         <h2>Numbers</h2>
         <ul>
           {persons.map((person) => (
-              <li key={person.id}>{person.name}  {person.number}</li>
+              <li key={person.id}>{person.name} {person.number}</li>
           ))}
         </ul>
       </div>
